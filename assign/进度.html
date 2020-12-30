@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+    <script src="../File/jquery-3.5.1.js"></script>
+    <script>
+        $(() => {
+            $('.jd').value = '0';
+            // $('.jdz').text = '0%';
+            document.getElementById('jdz').innerText = '0%';
+            document.getElementById('jd').value = '0';
+        })
+    </script>
+</head>
+<body>
+    <button idf = 'start'>开始</button>
+    <button idf = 'stop'>结束</button>
+    <div>
+        <span id = 'jdz'>10%</span>
+        <progress max ='100' min ='0' id = 'jd' value="10"></progress>
+    </div>
+</body> 
+</html>

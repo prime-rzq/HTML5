@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" ></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
+    <script>
+        window.onload = function(){
+            axios.get('data_my.json').then(function(response){
+                let div = document.querySelector("#table");
+                div.innerHTML = '';
+
+                let h1 = document.createElement('h1');
+                h1.align = "center";
+                h1.innerHTML="xxx表格";
+                div.appendChild(h1);
+
+                let table = document.createElement("table");
+                table.className = "table";
+                let tr = document.createElement("tr");
+                let td = document.createElement("td");
+                td.innerHTML = "id";
+                tr.appendChild(td);
+
+                td = document.createElement("td");
+                td.innerHTML = "name";
+                tr.appendChild(td);
+
+                td = document.createElement("td");
+                td.innerHTML = "birthday";
+                tr.appendChild(td);
+
+                td = document.createElement("td");
+                td.innerHTML = "address";
+                tr.appendChild(td);
+
+                table.appendChild(tr);
+                div.appendChild(table);
+
+                for(let row of response.data){
+                    let tr = document.createElement("tr");
+                    let td = document.createElement("td");
+                    td.innerHTML = row.id;
+                    tr.appendChild(td);
+
+                    td = document.createElement("td");
+                    td.innerHTML = row.name;
+                    tr.appendChild(td);
+
+                    td = document.createElement("td");
+                    td.innerHTML = row.birthday;
+                    tr.appendChild(td);
+
+                    td = document.createElement("td");
+                    td.innerHTML = row.address;
+                    tr.appendChild(td);
+
+                    table.appendChild(tr);
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+    <div id="table" class="container"></div>
+</body>
+</html>

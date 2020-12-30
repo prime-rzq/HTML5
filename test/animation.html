@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animation</title>
+    <style>
+        div{
+            animation: mymove 5s infinite;
+            transform: rotate3d(200,200,50,90dug);
+        }
+        @keyframes mymove{
+            from{
+                width: 10px;
+                height: 10px;
+                left: 0;
+                background: blueviolet;
+            }
+            to{
+                width: 200px;
+                height: 200px;
+                left: 100px;
+                background: burlywood;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

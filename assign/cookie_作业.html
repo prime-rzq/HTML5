@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../File/jquery-3.5.1.js"></script>
+    <script>
+        $(() => {
+            function getDate(){
+                alert(localStorage.getItem('code'));
+                // console.log(localStorage.getItem('id'));
+                // // console.log(localStorage.getItem('name'));
+                // // console.log(localStorage.getItem('mobile'));
+            }
+            function sageDate(){
+                localStorage.setItem('id',document.getElementById('id'),value);
+                // localStorage.setItem('id',document.getElementById('id').value);
+                // localStorage.setItem('name',document.getElementById('name').value);
+                // localStorage.setItem('mobile',document.getElementById('mobile').value);
+            }
+        })
+    </script>
+</head>
+<body>
+<!-- 
+    定义一个对象的数组。
+    例如：数组有5个成员，每个成员都是同一个类型的对象。每个对象都有id, name, mobile等属性。
+    在页面上放两个按钮，一个“写“，一个“读”，
+    当点击“写”的时候，将上面的复杂数据存到localStorage中，
+    当点击“读”的时候，将数据读出来，并邦定到页面的表格中。可以用原生javascript，也可以用jquery。
+    提交原代码 
+-->
+    <button value="get">GET</button><br>
+    ID:<input type="text" id = "id"><p>
+    <!-- NAME:<input type="text" id = "name"><p>
+    MOBILE:<input type="text" id = "mobile"><p> -->
+    <button value="save">SAVE</button>
+
+    <table border="3">
+        <caption>收集数据</caption>
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>MOBILE</th>
+        </tr>
+    </table>
+</body>
+</html>

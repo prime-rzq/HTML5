@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = init();
+        function init(){
+            let data = [
+                {id:'001',name:'张三',sex:'男',mobile:'133 1234 5678'},
+                {id:'002',name:'李四',sex:'男',mobile:'133 1234 2345'},
+                {id:'003',name:'王二',sex:'女',mobile:'133 1234 3456'},
+                {id:'004',name:'麻子',sex:'女',mobile:'133 1234 4567'},
+                {id:'005',name:'王五',sex:'男',mobile:'133 1234 5555'},
+                {id:'006',name:'圈圈',sex:'女',mobile:'133 1234 6789'}
+            ];
+        }
+
+        //使用json将存入的数据转为字符串
+        let jsonStr = JSON.stringify(data);
+        console.log(jsonStr);
+        localStorage.getItem('data',jsonStr);
+
+        function draw(){
+            let div = document.querySelector('#tab');
+            div.innerHTML = '';
+            let tit = document.createElement('h1');
+            tit.innerText = 'DATA 表格';
+            div.appendChild(tit);
+
+            let tab = document.createElement('table');
+            let tr = createElement('tr');
+            let td = createElement('td');
+            td.innerText = '编号';
+            tr.appendChild(td);
+
+            td = createElement('td');
+            td.innerText = '姓名';
+            tr.appendChild(td);
+
+            td = createElement('td');
+            td.innerText = '性别';
+            tr.appendChild(td);
+
+            td = createElement('td');
+            td.innerText = '手机号码';
+            tr.appendChild(td);
+            
+            tab.appendChild(tr);
+            div.appendChild(tab);
+        }
+
+        //JSON.parse
+        let jsonStr = localStorage.getItem('data');
+        let data = JSON.parse(jsonStr);
+
+        for(let row of data) {
+            console.log(row);
+            let tr = document.createElement('tr');
+            let td = document.createElement('td');
+            td.innerText = row.id;
+            tr.appendChild(td);
+
+            td = document.createElement('td');
+            td.innerText = row.name;
+            tr.appendChild(td);
+            
+            td = document.createElement('td');
+            td.innerText = row.sex;
+            tr.appendChild(td);
+
+            td = document.createElement('td');
+            td.innerText = row.mobile;
+            tr.appendChild(td);
+
+            tab.appendChild(tr);
+        }
+        
+        function btnGet(){
+            draw();
+        }
+        function btnSave(){}
+    </script>
+</head>
+<body>
+    <input type="button" value="get" onclick="btnGet();"><br>
+    <input type="text" id="key">
+    <input type="button" value="save" onclick="btnSave();">
+    <div id="tab"></div>
+</body>
+</html>

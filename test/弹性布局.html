@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>弹性布局——作业</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        #box{
+            width: 980px;
+            height: 400px;
+            background-color: cornflowerblue;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            display: flex;
+            flex-flow: row-reverse wrap;
+            /* justify-content: space-around;
+            align-items: center; */
+
+        }
+        #cten{
+            width: 300px;
+            height: 100px;
+            background-color: darkgreen;
+            margin: 20px 20px 0px 0px;
+        }
+    </style>
+    <script>
+        
+    </script>
+</head>
+<body>
+    <div id="box">
+        <div id = 'cten'>1</div>
+        <div id = 'cten'>2</div>
+        <div id = 'cten'>3</div>
+        <div id = 'cten'>4</div>
+        <div id = 'cten'>5</div>
+        <div id = 'cten'>6</div>
+        <div id = 'cten'>7</div>
+        <div id = 'cscrip'></div>
+        <!-- <div id = 'cten'></div> -->
+        <div id = 'cten' style = ' margin-left:20px'></div>
+    </div>
+</body>
+</html>

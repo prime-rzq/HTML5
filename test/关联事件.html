@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src = 'File/jquery-3.5.1.js'></script>
+    <script>
+        window.onload = function(){
+            document.getElementById('but1').onclick = function(){
+                alert(1);
+            }
+            $('#but2').click = function(){
+                alert(2);
+            }
+            $('#but2').bind('click',function(){
+                alert(3);
+            })
+        }
+    </script>
+</head>
+<body>
+    <button id = 'but1'>1</button>
+    <button id = 'but2'>2</button>
+</body>
+</html>

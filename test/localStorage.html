@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>localStorage存储</title>
+    <style>
+        .tabs{
+            border: solid 2px royalblue;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        window.onload = init();
+        
+        function init(){
+            let data = [
+                {id:100,name:"张三",birthday:"2001-01-01",mobile:"13708292156"},
+                {id:101,name:"李四",birthday:"2001-01-01",mobile:"13659033245"},
+                {id:102,name:"王五",birthday:"2001-01-01",mobile:"15883126945"},
+                {id:103,name:"孙八",birthday:"2001-01-01",mobile:"19923352630"},
+                {id:104,name:"陈七",birthday:"2001-01-01",mobile:"13990956810"},
+            ];
+            let jsonStr = JSON.stringify(data);
+            console.log(jsonStr);
+            localStorage.setItem('data',jsonStr);
+        }
+        function draw(){
+            let div = document.querySelector('#tab');
+            div.innerHTML = '';
+            let h1 = document.createElement('h1');
+            h1.innerText = "联系人表格";
+            div.appendChild(h1);
+
+            let tab = document.createElement('table');
+            let tr = document.createElement('tr');
+            let td = document.createElement('td');
+            td.innerText= '编号';
+            tr.appendChild(td);
+            
+            td = document.createElement('td');
+            td.innerText= '姓名';
+            tr.appendChild(td);
+
+            td = document.createElement('td');
+            td.innerText= '生日';
+            tr.appendChild(td);
+
+            td = document.createElement('td');
+            td.innerText= '手机号码';
+            tr.appendChild(td);
+
+            tab.appendChild(tr);
+            div.appendChild(tab);
+
+            let jsonStr = localStorage.getItem('data');
+            let data = JSON.parse(jsonStr);
+            for(let row of data){
+                console.log(row);
+                let tr = document.createElement('tr');
+                let td = document.createElement('td');
+                td.innerText = row.id;
+                tr.appendChild(td);
+
+                td = document.createElement('td');
+                td.innerText = row.name;
+                tr.appendChild(td);
+                
+                td = document.createElement('td');
+                td.innerText = row.birthday;
+                tr.appendChild(td);
+
+                td = document.createElement('td');
+                td.innerText = row.mobile;
+                tr.appendChild(td);
+
+                tab.appendChild(tr);
+            }
+        }
+        function btnGet(){
+            draw();
+        }
+        function btnSave(){}
+    </script>
+    <input type="button" value="get" onclick="btnGet();">
+    <br>
+    <input type="text" id="key">;
+    <input type="button" value="save" onclick="btnSave();">
+    <div id="tab"></div>
+</body>
+</html>

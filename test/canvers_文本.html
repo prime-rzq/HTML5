@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            var draw = document.getElementById('draw');
+            var line = document.getElementById('line');
+            var rect = document.getElementById('rect');
+            var circle = document.getElementById('circle');
+            var gradient = document.getElementById('gradient');
+            var text = document.getElementById('text');
+            var img = document.getElementById('img');
+            var clean = document.getElementById('clean');
+            
+            // 画线条的正确步骤：
+            // beginPath()
+            // moveTo()
+            // lineTo()
+            // closePath()
+            // stroke()
+            line.onclick = function(){
+                var c = document.getElementById('draw');
+                var ctx = c.getContext("2d");
+                ctx.moveTo(0,0);
+                ctx.lineTo(200,300);
+                ctx.stroke();
+            }
+
+            //?
+            rect.onclic = function(){
+                var c = document.getElementById('draw');
+                var ctx = c.getContext('2d');
+                ctx.fillStyle = 'red';
+                ctx.fillRect(20,20,150,100);
+            }
+            circle.onclick = function(){
+                var c = document.getElementById('draw');
+                var ctx = c.getContext("2d");
+                ctx.beginPath();
+                ctx.arc(150,100,40,0,2 * Math.PI);
+                ctx.stroke();
+            }
+            text.onclick = function(){
+                var c = document.getElementById('draw');
+                var ctx = c.getContext("2d");
+                ctx.font = '50px 华文新魏';
+                ctx.fillText('This is a text of canvas.',20,20);
+            }
+            gradient.onclick = function(){
+                var c = document.getElementById('draw');
+                var ctx = c.getContext("2d");
+                var gld = ctx.creatLinearGradient(0,0,200,0);
+                gld.addColorStop(0,'red');
+                gld.addColorStop(1,'blue');
+                ctx.fillStyle = gld;
+                ctx.fillRect(20,20,300,200);
+            }
+            img.onclick = function(){
+                var c = document.getElementById('draw');
+                var ctx = c.getContext('2d');
+
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id = 'line'>直线</button>
+    <button id = 'rect'>矩形</button>
+    <button id = 'circle'>圆形</button>
+    <button id = 'text'>文字</button>
+    <button id = 'gradient'>渐变</button>
+    <button id = 'img'>图片</button>
+    <button id = 'clean'>清除</button>
+    <div>
+        <canvas id="draw" width="500" height="500" style="border:1px solid #000000;"></canvas>
+    </div>
+    <img src="../img/1.jpg" alt="">
+</body>
+</html>

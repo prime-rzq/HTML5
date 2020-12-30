@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas</title>
+    <style>
+        canvas{width: 500px; height: 300px;border: 1px solid #000000;}
+    </style>
+    <script>
+        let btn1 = document.getElementById('btn1');
+        let btn2 = document.getElementById('btn2');
+        let btn3 = document.getElementById('btn3');
+        let btn4 = document.getElementById('btn4');
+
+        btn4.onclick = function(){
+            // alert('ok');
+            let c = document.getElementById('draw');
+            let ctx = c.getContext('2d');
+            ctx.fillStyle = '#0F0';
+            ctx.fillRect(10,10,100,100);
+        }
+    </script>
+</head>
+<body>
+    <button id ='btn1'>斜线</button>
+    <button id ='btn2'>圆形</button>
+    <button id ='btn3'>文字</button>
+    <button id ='btn4'>矩形</button>
+    <canvas id = 'draw'></canvas>
+</body>
+</html>

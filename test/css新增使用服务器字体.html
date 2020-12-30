@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css新增使用服务器字体</title>
+    <style>
+        div{
+            border: 1px solid;
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            let c = document.querySelector("#myDraw");
+            let ctx = c.getContext('2d');
+            ctx.fillStyle = '#f00';
+            // 矩形
+            ctx.fillRect(10,10,50,80);
+            // 线条
+            ctx.moveTo(0,0);
+            ctx.lineTo(100,100);
+            ctx.stroke();
+            // 圆
+            ctx.beginPath();
+            ctx.arc(100,50,40,0,20 * Math.PI);
+            ctx.stroke();
+            // 文字
+            ctx.font = "20px 华文新魏";
+            ctx.fillText("LOGO",100,30);
+        }
+    </script>
+</head>
+<body>
+    <!-- <p style = 'border:1px solid;width:50px'>设置自动换行的处理方式。</p> -->
+    <div>
+        <label for="username">单行文本框：</label>
+        <input id="username" name="username" type="text" /><br />
+    </div>
+
+    <!-- canvas_test -->
+    <canvas id = 'myDraw' style="width: 200px;height: 200px;border: 1px solid;"></canvas>
+</body>
+</html>

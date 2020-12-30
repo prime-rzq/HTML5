@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex布局</title>
+    <style>
+        #box{
+            width: 940px;
+            /* height: 200px; */
+            background-color: blueviolet;
+            display: flex;
+            /* flex-wrap: wrap;
+            /* flex-direction: row-reverse; */     
+            /* 等价flex-flow: row-reverse wrap; */
+            flex-flow: row-reverse wrap;
+            justify-content: space-between;
+            /* align-items:center; */
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            /* align-items: stretch; */
+        }
+        #cont{
+            width: 300px;
+            height: 100px;
+            background-color: brown;
+            /* margin: 10px 10px 0px 0px; */
+        }
+    </style>
+</head>
+<body>
+    <div id = 'box'>
+        <div id = 'cont'>1</div>
+        <div id = 'cont'>2</div>
+        <div id = 'cont'>3</div>
+        <div id = 'cont'>4</div>
+        <div id = 'cont'>5</div>
+        <div id = 'cont'>6</div>
+        <div id = 'cont'>7</div>
+        <div id = 'cont'>8</div>
+        <div id = 'cont'>9</div>
+        <!-- <div id = 'cont' style='margin-bottom: 10px;'>9</div> -->
+    </div>
+</body>
+</html>

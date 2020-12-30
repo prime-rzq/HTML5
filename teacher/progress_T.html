@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 500px;
+            height: 300px;
+            border: 1px solid darkgoldenrod;
+            /*div水平，垂直居中*/
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /*内容居中*/
+            line-height: 300px;
+            text-align: center;
+            border-radius: 2%;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            //alert(1);
+            //console.log(12323);
+            document.getElementById('span1').innerText = '0%';
+            document.getElementById('progress1').value = 0;
+
+            let timer = null;
+            document.getElementById('btnStart').onclick = function() {
+                //alert('btn1 click');
+                timer = setInterval(function(){
+                    //console.log('123');
+                    let jd = parseInt(document.getElementById('progress1').value);
+                    if (jd == 100 && timer != null) {
+                        clearInterval(timer);
+                        return;
+                    }
+                    jd++;
+                    document.getElementById('progress1').value = jd;
+                    document.getElementById('span1').innerText = jd.toString() + '%';
+                } , 200);
+            }
+            
+            document.getElementById('btnStop').onclick = function() {
+                clearInterval(timer);
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id="btnStart">开始</button>
+    <button id="btnStop">结束</button>
+    <div>
+        当前进度：<span id="span1">10%</span>   
+        <progress max="100" value="10" min="0" id="progress1"></progress>
+    </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./File/jquery-3.5.1.js"></script>
+    <script>
+        $(() => {
+            $('#jdz').text('0%');
+            $('#jd').val(0);
+
+            let time;
+            $('#btnStart').click(() => {
+                console.log('click is ok!');
+                time = setInterval(() => {
+                    let jd = $('#jd').val;
+                    jd++;
+                    console.log(jd + 'jd is ok')
+                    $('#jdz').text(jd.toString() + '%');
+                    $('#jd').value = jd;
+                    console.log('time is ok');
+                },5000);
+            })
+        })
+    </script>
+</head>
+<body>
+    <button id ="btnStart">开始</button>
+    <button id ="btnStop">停止</button>
+    <div>
+        当前进度：<span id = 'jdz'>30%</span>
+        <progress id = 'jd' max = '100' min = '0' value="30"></progress>
+    </div>
+</body>
+</html>

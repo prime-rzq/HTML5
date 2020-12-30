@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拖放元素</title>
+    <style>
+        #box,#box1{
+            width: 300px;
+            height: 200px;
+            border: 1px solid black;
+            padding:10px;
+            box-sizing: border-box;
+        }
+        #imgs{
+            width: 300px;
+            height: 200px;
+        }
+    </style>
+    <script>
+            function drag(ev){
+                ev.dataTransfer.setData("name",ev.target.id);
+                let knowName = ev.target.id;
+                console.log(knowName + 'is target id name.');
+            }
+            function allowDrop(ev){
+                ev.preventDefault();
+            }
+            function drop(ev){
+                let idName = ev.dataTransfer.getData("name");
+                ev.target.appendChild(document.getElementById(idName));
+            }
+    </script>
+</head>
+<body>
+    <div id="box" ondrop="drop(event)" ondragover="allowDrop(event)"></div><br>
+    <img src="./img/1.jpg" draggable="true" id = 'imgs' ondragstart="drag(event)"><br>
+    <div id = 'box1' ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+</body>
+</html>

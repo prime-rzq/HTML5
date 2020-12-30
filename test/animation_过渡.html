@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            overflow: hidden;
+        }
+        div{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            text-align: center;
+            padding-top: 35%;
+        }
+        a{
+            text-decoration: none;
+            font-size: 30pt;
+            font-weight: bolder;
+            color: white;
+        }
+
+        #div1{
+            animation: div1move 3s infinite 5s;
+            transform: translate(0,0);
+            background: rgb(9, 91, 94);
+        }
+        #div2{
+            animation: div2move 3s infinite 5s;
+            transform: translate(100%,0);
+            background: rgb(4, 105, 29);
+        }
+        @keyframes div1move{
+            from{
+                transform: translate(0,0);
+            }
+            to{
+                transform: translate(-100%,0);
+            }
+        }
+        @keyframes div2move{
+            from{
+                transform: translate(100%,0);
+            }
+            to{
+                transform: translate(0,0);
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <div id="div1">
+        <a href="#div2">next</a>
+    </div>
+    <div id="div2">
+        <a href="#div1">last</a>
+    </div>
+
+    <script>
+        window.onload = function () {
+            let list = document.querySelectorAll('a');
+
+            for(let a of list){
+                a.onclick = function(){
+                    event.preventDefault();
+                    toggleClass('div1','move');
+                    toggleClass('div2','move');
+                }
+            }
+
+            function toggleClass(id,className){
+                let dom = document.querySelector('#' + id);
+                if(dom.className == className){
+                    dom.className = '';
+                }else{
+                    dom.className = className;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

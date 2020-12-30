@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rect</title>
+    <script>
+        window.onload = function(){
+            document.querySelector('#st').onclick = function(){
+                var c = document.querySelector('#canvas');
+                var ctx = c.getContext('2d');
+                ctx.fillStyle = 'red';  //fillstyle位置要在fillerect前面，否则fillstyle无效
+                ctx.fillRect(10,10,200,100);
+
+                //路径初始化
+                ctx.beginPath();
+                //描边
+                ctx.rect(220,10,200,100);
+                //填充
+                ctx.fill();
+                //画
+                
+                ctx.stroke();
+
+
+            }
+            document.querySelector('#cl').onclick = function(){
+                var c = document.querySelector('#canvas');
+                var ctx = c.getContext('2d');
+                ctx.fillStyle = 'white';
+                ctx.fillRect(10,10,200,100);
+                
+                // var body = document.querySelector('body');
+                // body.remove(document.querySelector('#canvas'));
+                // document.querySelector('#cl').appendChild(`<canvas id = 'canvas' width = '300' height="300"></canvas>`);
+                // canvas.style.width = '300px';
+                // canvas.style.height = '300px';
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id = 'st'>rect</button>
+    <button id = 'cl'>clean</button><p></p>
+    <canvas id = 'canvas' width = '300' height="900">您的浏览器不支持canvas，请更换为更高版本的浏览器。</canvas>
+</body>
+</html>

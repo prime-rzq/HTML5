@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      table {
+        border: 1px solid black;
+      }
+      tr {
+        background-color: palevioletred;
+      }
+      td {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <table class="mytable"></table>
+    <!-- <input type="text" class="mytable"> -->
+    <button class="set">存入</button>
+    <button class="get">写入</button>
+  </body>
+  <script>
+    const tab = document.querySelector(".mytable");
+    const set = document.querySelector(".set");
+    const get = document.querySelector(".get");
+    var cont = 0;
+    function test(id, name, mobile) {
+      this.id = id;
+      this.name = name;
+      this.mobile = mobile;
+    }
+    function write(arr) {
+      let table = null;
+      var gettb = "<tr>";
+      for (let i = 0; i < 5; i++) {
+        gettb +=
+          "<td>" +
+          arr[i].id +
+          "</td>" +
+          " <td>" +
+          arr[i].name +
+          "</td>" +
+          " <td>" +
+          arr[i].mobile +
+          "</td></tr>";
+      }
+      tab.innerHTML = gettb;
+    }
+    var t1 = new test(1, "张三", 12345678910);
+    var t2 = new test(2, "李四", 12345678910);
+    var t3 = new test(3, "王二", 12345678910);
+    var t4 = new test(4, "麻子", 12345678910);
+    var t5 = new test(5, "圈圈", 12345678910);
+    var arr = Array(t1, t2, t3, t4, t5);
+    set.addEventListener("click", function () {
+      cont++;
+      localStorage.setItem(cont, JSON.stringify(arr));
+    });
+    get.addEventListener("click", function () {
+      write(JSON.parse(localStorage.getItem(1)));
+    });
+  </script>
+
+</html>
